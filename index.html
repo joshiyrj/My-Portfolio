@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yashraj Joshi · AI Engineer · Full‑Stack Developer</title>
+  <meta name="description" content="Portfolio of Yashraj Joshi — AI Engineer, Full‑Stack Developer & SEO Specialist. Showcasing production‑ready projects in Python, JavaScript/TypeScript, ML/DL and cloud." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Yashraj Joshi · AI Engineer · Full‑Stack Developer" />
+  <meta property="og:description" content="Selected work in AI/ML, full‑stack, data engineering and cloud." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://joshiyrj.github.io" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <style>
+    :root{
+      --bg:#0b0b0f;          /* deep black */
+      --panel:#0f1016;       /* card bg */
+      --gold:#d4af37;        /* rich gold */
+      --gold-2:#c79b1b;      /* darker gold */
+      --text:#f2f2f2;
+      --muted:#b8b8b8;
+      --accent: var(--gold);
+      --radius:20px;
+      --ring: rgba(212,175,55,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth;}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; 
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(212,175,55,.12), transparent 60%),
+                  radial-gradient(900px 600px at -10% 20%, rgba(212,175,55,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6; 
+    }
+    a{color:var(--text);text-decoration:none}
+    .container{width:min(1100px,90%);margin:0 auto}
+    header{
+      position:sticky;top:0;z-index:50;
+      background:linear-gradient(180deg, rgba(11,11,15,.9), rgba(11,11,15,.6));
+      backdrop-filter:saturate(1.2) blur(10px);
+      border-bottom:1px solid rgba(212,175,55,.15);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      display:grid;place-items:center;color:#111;font-weight:800;box-shadow:0 0 0 4px var(--ring),0 10px 30px rgba(212,175,55,.25)}
+    .brand .text{font-family:'Playfair Display',serif;font-size:20px}
+    nav a{margin-left:18px;color:var(--muted)}
+    nav a:hover{color:var(--text)}
+
+    /* Hero */
+    .hero{padding:72px 0 40px}
+    .hero-inner{display:grid;gap:24px;align-items:center;grid-template-columns:1.1fr .9fr}
+    @media (max-width:900px){.hero-inner{grid-template-columns:1fr}}
+    .title{
+      font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.15;letter-spacing:.2px;
+      background:linear-gradient(180deg,var(--text),#e6e6e6 60%, var(--gold));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .subtitle{color:var(--muted);font-size:clamp(14px,1.7vw,16px)}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .btn{padding:12px 16px;border-radius:999px;font-weight:700;border:1px solid rgba(212,175,55,.35);
+      background:rgba(212,175,55,.06);transition:.2s ease;display:inline-flex;align-items:center;gap:8px}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(212,175,55,.18)}
+    .btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#111;border:none}
+
+    .hero-card{background:linear-gradient(180deg,rgba(212,175,55,.10),rgba(212,175,55,.06));border:1px solid rgba(212,175,55,.25);
+      padding:22px;border-radius:var(--radius);box-shadow:0 8px 40px rgba(0,0,0,.35)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .mini{background:var(--panel);border:1px solid rgba(212,175,55,.18);border-radius:18px;padding:16px}
+    .kpi{font-size:22px;font-weight:800}
+
+    /* Section */
+    section{padding:48px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
+    .h2{font-family:'Playfair Display',serif;font-weight:700;font-size:28px;letter-spacing:.3px}
+    .muted{color:var(--muted)}
+
+    /* Filters */
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{padding:8px 12px;border-radius:999px;border:1px solid rgba(212,175,55,.25);background:rgba(212,175,55,.06);font-weight:600;cursor:pointer}
+    .chip.active,.chip:hover{background:linear-gradient(135deg,rgba(212,175,55,.35),rgba(212,175,55,.15));}
+
+    /* Project Grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+    .card{position:relative;background:var(--panel);border:1px solid rgba(212,175,55,.18);border-radius:18px;padding:18px;overflow:hidden}
+    .card::after{content:"";position:absolute;inset:0;background:radial-gradient(400px 140px at -10% -20%, rgba(212,175,55,.12), transparent 40%)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px}
+    .card p{color:#d9d9d9;margin:8px 0 16px;font-size:14px;min-height:40px}
+    .card .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{padding:9px 12px;border-radius:12px;border:1px solid rgba(212,175,55,.25);background:rgba(212,175,55,.06);font-weight:700}
+    .pill.primary{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#111;border:none}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    @media (max-width:980px){.about{grid-template-columns:1fr}}
+    .about .panel{background:var(--panel);border:1px solid rgba(212,175,55,.18);border-radius:18px;padding:18px}
+    .list{display:grid;gap:8px}
+    .list li{list-style:none;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.18);padding:10px 12px;border-radius:10px}
+
+    footer{padding:38px 0;border-top:1px solid rgba(212,175,55,.18);color:var(--muted)}
+
+    /* Reveal */
+    [data-reveal]{opacity:0;transform:translateY(14px);transition: .6s ease}
+    [data-reveal].visible{opacity:1;transform:none}
+
+    /* Search */
+    .search{display:flex;gap:10px;align-items:center}
+    .search input{
+      width:280px;max-width:100%;
+      padding:10px 12px;border-radius:12px;border:1px solid rgba(212,175,55,.25);
+      background:rgba(212,175,55,.06);color:var(--text)
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yashraj Joshi",
+    "url": "https://joshiyrj.github.io",
+    "jobTitle": "AI Engineer, Full‑Stack Developer, SEO Specialist",
+    "email": "mailto:joshiyrj@gmail.com",
+    "sameAs": [
+      "https://github.com/joshiyrj",
+      "https://www.linkedin.com/in/yashrajjoshi"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="logo">YJ</span>
+        <span class="text">Yashraj Joshi</span>
+      </a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1 class="title" data-reveal>
+            AI Engineer • Full‑Stack Developer • SEO Specialist
+          </h1>
+          <p class="subtitle" data-reveal>
+            I design and ship production‑ready tools across Python/Node, ML, and cloud. Below are projects that solve real problems: reconciliation engines, service‑to‑service gRPC, and practical ML labs.
+          </p>
+          <div class="cta" data-reveal>
+            <a class="btn primary" href="#work">View my work</a>
+            <a class="btn" href="https://github.com/joshiyrj" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="Yashraj_Joshi_AI_Engineer_Resume_UPDATED.pdf" target="_blank" rel="noopener">Download Resume</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Highlights" data-reveal>
+          <div class="hero-grid">
+            <div class="mini">
+              <div class="kpi">2.5+ yrs</div>
+              <div class="muted">Building data‑driven apps</div>
+            </div>
+            <div class="mini">
+              <div class="kpi">Cloud‑native</div>
+              <div class="muted">GCP · AWS · Docker</div>
+            </div>
+            <div class="mini">
+              <div class="kpi">Stacks</div>
+              <div class="muted">Python · TS/Node · React</div>
+            </div>
+            <div class="mini">
+              <div class="kpi">Focus</div>
+              <div class="muted">Automation · Analytics · SEO</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head">
+        <div>
+          <div class="h2">Selected Work</div>
+          <div class="muted">Auto‑populated from my GitHub (live), with curated picks highlighted.</div>
+        </div>
+        <div class="search">
+          <input id="search" placeholder="Search projects... (e.g., Python, gRPC)" aria-label="Search projects" />
+          <div class="filters" id="filters"></div>
+        </div>
+      </div>
+      <div class="grid" id="projects" data-reveal></div>
+      <p class="muted" id="fallbackMsg" style="display:none">Couldn’t load repositories. You can <a href="https://github.com/joshiyrj?tab=repositories" target="_blank" rel="noopener">view everything on GitHub</a>.</p>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <div class="h2">About</div>
+      </div>
+      <div class="about" data-reveal>
+        <div class="panel">
+          <p>
+            I’m an AI/ML engineer and full‑stack developer from Kolkata who enjoys turning messy real‑world workflows into crisp software.
+            I’ve shipped Shopify builds, IoT data pipelines, and ML‑powered automations, with a pragmatic focus on DX, reliability and measurable outcomes.
+          </p>
+          <ul class="list">
+            <li><strong>Languages:</strong> Python, JavaScript/TypeScript, R</li>
+            <li><strong>ML:</strong> TensorFlow, Keras, scikit‑learn, Pandas</li>
+            <li><strong>Frameworks:</strong> React, Node.js/Express, LoopBack4, gRPC</li>
+            <li><strong>Cloud/DevOps:</strong> GCP, AWS, Docker, Git</li>
+            <li><strong>Data/BI:</strong> Power BI, Tableau, PostgreSQL, MongoDB, MySQL</li>
+            <li><strong>Domains:</strong> Shopify, IoT (MQTT/ESP32), SEO</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <p>
+            Highlights: Launched a Shopify storefront with technical SEO (+45% organic), built bank↔ledger reconciliation with fuzzy matching,
+            and implemented gRPC comms across Node services on GCP/AWS. I care about maintainable code, good docs, and delightful UX.
+          </p>
+          <p class="muted">Resume → <a href="Yashraj_Joshi_AI_Engineer_Resume_UPDATED.pdf" target="_blank" rel="noopener">PDF</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div class="h2">Contact</div>
+      </div>
+      <div class="cta" data-reveal>
+        <a class="btn primary" href="mailto:joshiyrj@gmail.com">Email Me</a>
+        <a class="btn" href="https://www.linkedin.com/in/yashrajjoshi" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/joshiyrj" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Yashraj Joshi • Built for GitHub Pages • Theme: Black & Gold
+    </div>
+  </footer>
+
+  <script>
+    const username = 'joshiyrj';
+    const EXCLUDE = new Set(['mqtt','joshiyrj.github.io']); // exclude low-signal or the site repo
+    const curated = new Set(['transaction-reconciliation', 'grpc-loopback4', 'ml-models-and-algorithms']); // update to your actual repo names if different
+
+    const projectsEl = document.getElementById('projects');
+    const filtersEl = document.getElementById('filters');
+    const searchEl = document.getElementById('search');
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
+    },{threshold:.2});
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fetch repos
+    async function loadRepos(){
+      try{
+        const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+        if(!res.ok) throw new Error('GitHub API error');
+        let repos = await res.json();
+        repos = repos.filter(r=>!r.fork && !r.archived && !EXCLUDE.has(r.name));
+
+        // Sort: curated first, then stars desc, then recently updated
+        repos.sort((a,b)=>{
+          const aCur = curated.has(a.name)?1:0; const bCur = curated.has(b.name)?1:0;
+          if(aCur!==bCur) return bCur-aCur;
+          if(b.stargazers_count!==a.stargazers_count) return b.stargazers_count - a.stargazers_count;
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        });
+
+        renderFilters(repos);
+        renderRepos(repos);
+
+        // Search handling
+        searchEl.addEventListener('input', ()=>{
+          const q = searchEl.value.toLowerCase().trim();
+          const activeChip = document.querySelector('.chip.active');
+          const lang = activeChip ? activeChip.dataset.lang : 'all';
+          const filtered = repos.filter(r => matchRepo(r, q, lang));
+          renderRepos(filtered);
+        });
+
+        // Filter clicks
+        filtersEl.addEventListener('click', (e)=>{
+          const btn = e.target.closest('.chip');
+          if(!btn) return;
+          document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+          btn.classList.add('active');
+          const q = searchEl.value.toLowerCase().trim();
+          const lang = btn.dataset.lang;
+          const filtered = repos.filter(r => matchRepo(r, q, lang));
+          renderRepos(filtered);
+        });
+
+      }catch(err){
+        console.error(err);
+        document.getElementById('fallbackMsg').style.display='block';
+      }
+    }
+
+    function matchRepo(r, q, lang){
+      const hay = `${r.name} ${r.description||''} ${r.language||''}`.toLowerCase();
+      const qok = !q || hay.includes(q);
+      const lok = (lang==='all') || ((r.language||'').toLowerCase() === lang.toLowerCase());
+      return qok && lok;
+    }
+
+    function renderFilters(repos){
+      const langs = Array.from(new Set(repos.map(r=>r.language).filter(Boolean))).sort();
+      const all = document.createElement('button');
+      all.className='chip active'; all.textContent='All'; all.dataset.lang='all';
+      filtersEl.appendChild(all);
+      langs.forEach(l=>{
+        const b = document.createElement('button');
+        b.className='chip'; b.textContent=l; b.dataset.lang=l;
+        filtersEl.appendChild(b);
+      });
+    }
+
+    function timeAgo(iso){
+      const diff = (Date.now() - new Date(iso).getTime())/1000;
+      const t = (v,u)=>`${Math.floor(v)} ${u} ago`;
+      if(diff<60) return t(diff,'sec');
+      if(diff<3600) return t(diff/60,'min');
+      if(diff<86400) return t(diff/3600,'hr');
+      if(diff<2592000) return t(diff/86400,'day');
+      if(diff<31536000) return t(diff/2592000,'mo');
+      return t(diff/31536000,'yr');
+    }
+
+    function renderRepos(list){
+      projectsEl.innerHTML='';
+      if(!list.length){
+        projectsEl.innerHTML = '<p class="muted">No projects found for this filter/search.</p>';
+        return;
+      }
+      list.slice(0, 12).forEach(r=>{
+        const el = document.createElement('article');
+        el.className='card';
+        el.innerHTML = `
+          <h3>${escapeHtml(r.name)}</h3>
+          <div class="meta">
+            ${r.language?`<span>💻 ${escapeHtml(r.language)}</span>`:''}
+            <span>⭐ ${r.stargazers_count}</span>
+            <span>↻ ${timeAgo(r.updated_at)}</span>
+          </div>
+          <p>${escapeHtml(r.description || 'No description yet.')}</p>
+          <div class="actions">
+            ${r.homepage ? `<a class="pill primary" href="${r.homepage}" target="_blank" rel="noopener">Live</a>` : ''}
+            <a class="pill" href="${r.html_url}" target="_blank" rel="noopener">Repository</a>
+          </div>
+        `;
+        projectsEl.appendChild(el);
+      });
+    }
+
+    function escapeHtml(s){
+      return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m]));
+    }
+
+    loadRepos();
+  </script>
+</body>
+</html>
