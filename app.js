@@ -116,8 +116,6 @@ class PortfolioApp {
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
                 
-                console.log('Navigating to:', targetId, targetElement); // Debug log
-                
                 if (targetElement) {
                     const navHeight = 72;
                     const targetPosition = targetElement.offsetTop - navHeight;
@@ -159,6 +157,24 @@ class PortfolioApp {
                 this.closeMobileMenu();
             }
         });
+
+        // Close with Escape key for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+                this.closeMobileMenu();
+            }
+        });
+
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
+        const handleViewportChange = () => this.updateMenuAccessibility();
+
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener('change', handleViewportChange);
+        } else if (mediaQuery.addListener) {
+            mediaQuery.addListener(handleViewportChange);
+        }
+
+        this.updateMenuAccessibility();
 
         // Active nav item on scroll
         this.updateActiveNavigation();
@@ -1250,22 +1266,52 @@ class PortfolioApp {
     openMobileMenu() {
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        
+
         if (navToggle && navMenu) {
             navToggle.classList.add('active');
             navMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            this.updateMenuAccessibility();
         }
     }
 
     closeMobileMenu() {
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        
+
         if (navToggle && navMenu) {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
+            this.updateMenuAccessibility();
+        }
+    }
+
+    updateMenuAccessibility() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (!navMenu) return;
+
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
+        const isMobile = mediaQuery.matches;
+        const isOpen = navMenu.classList.contains('active');
+
+        if (isMobile) {
+            navMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+
+            if (navToggle) {
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        } else {
+            navMenu.removeAttribute('aria-hidden');
+            navMenu.classList.remove('active');
             document.body.style.overflow = '';
+
+            if (navToggle) {
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
         }
     }
 
