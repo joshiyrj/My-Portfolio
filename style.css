@@ -2207,11 +2207,15 @@ section {
     opacity: 0;
     transition: all var(--duration-normal) var(--ease-standard);
     border-top: 1px solid var(--color-border);
+    pointer-events: none;
+    visibility: hidden;
   }
-  
+
   .nav-menu.active {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
   
   .nav-toggle {

@@ -20,7 +20,12 @@ class PortfolioApp {
             templateId: 'template_kh764vl',
             publicKey: 'pAuNMwjaXO54bpLpC'
         };
-        
+
+        this.mobileMediaQuery = null;
+        this.previouslyFocusedElement = null;
+        this.bodyScrollLocked = false;
+        this.originalBodyOverflow = '';
+
         this.init();
     }
 
@@ -116,8 +121,6 @@ class PortfolioApp {
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
                 
-                console.log('Navigating to:', targetId, targetElement); // Debug log
-                
                 if (targetElement) {
                     const navHeight = 72;
                     const targetPosition = targetElement.offsetTop - navHeight;
@@ -133,7 +136,7 @@ class PortfolioApp {
                         this.smoothScrollTo(targetPosition, 800);
                     }
                     
-                    this.closeMobileMenu();
+                    this.closeMobileMenu({ restoreFocus: false });
                     
                     // Update active nav item immediately
                     navLinks.forEach(l => l.classList.remove('active'));
@@ -156,9 +159,35 @@ class PortfolioApp {
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (navbar && navMenu && !navbar.contains(e.target) && navMenu.classList.contains('active')) {
+                this.closeMobileMenu({ restoreFocus: false });
+            }
+        });
+
+        // Close with Escape key for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
                 this.closeMobileMenu();
             }
         });
+
+        if (typeof window.matchMedia === 'function') {
+            this.mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+
+            const handleViewportChange = (event) => {
+                const matches = event && typeof event.matches === 'boolean'
+                    ? event.matches
+                    : this.isMobileViewport();
+                this.updateMenuAccessibility(matches);
+            };
+
+            if (this.mobileMediaQuery.addEventListener) {
+                this.mobileMediaQuery.addEventListener('change', handleViewportChange);
+            } else if (this.mobileMediaQuery.addListener) {
+                this.mobileMediaQuery.addListener(handleViewportChange);
+            }
+        }
+
+        this.updateMenuAccessibility(this.isMobileViewport());
 
         // Active nav item on scroll
         this.updateActiveNavigation();
@@ -1234,38 +1263,152 @@ class PortfolioApp {
     }
 
     // FIXED: Mobile Menu Functions
+    isMobileViewport() {
+        if (this.mobileMediaQuery) {
+            return this.mobileMediaQuery.matches;
+        }
+
+        if (typeof window !== 'undefined') {
+            return window.innerWidth <= 768;
+        }
+
+        return false;
+    }
+
     toggleMobileMenu() {
         const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (navToggle && navMenu) {
-            if (navToggle.classList.contains('active')) {
-                this.closeMobileMenu();
-            } else {
-                this.openMobileMenu();
-            }
+
+        if (!navToggle) {
+            return;
+        }
+
+        if (navToggle.classList.contains('active')) {
+            this.closeMobileMenu();
+        } else {
+            this.openMobileMenu();
         }
     }
 
     openMobileMenu() {
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        
+
         if (navToggle && navMenu) {
+            this.previouslyFocusedElement = document.activeElement instanceof HTMLElement
+                ? document.activeElement
+                : null;
+
             navToggle.classList.add('active');
             navMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
+
+            const isMobile = this.isMobileViewport();
+            this.updateMenuAccessibility(isMobile);
+
+            if (isMobile) {
+                const focusTarget = navMenu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+
+                if (focusTarget instanceof HTMLElement) {
+                    const focus = () => focusTarget.focus();
+
+                    if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') {
+                        window.requestAnimationFrame(focus);
+                    } else {
+                        focus();
+                    }
+                }
+            }
         }
     }
 
-    closeMobileMenu() {
+    closeMobileMenu({ restoreFocus = true } = {}) {
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        
+
         if (navToggle && navMenu) {
+            const isMobile = this.isMobileViewport();
+
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
-            document.body.style.overflow = '';
+
+            this.updateMenuAccessibility(isMobile);
+
+            if (restoreFocus && isMobile) {
+                const focusTarget = this.previouslyFocusedElement instanceof HTMLElement
+                    ? this.previouslyFocusedElement
+                    : navToggle;
+
+                const focus = () => {
+                    if (focusTarget && typeof focusTarget.focus === 'function') {
+                        focusTarget.focus();
+                    }
+                };
+
+                if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') {
+                    window.requestAnimationFrame(focus);
+                } else {
+                    focus();
+                }
+            }
+        }
+
+        this.previouslyFocusedElement = null;
+    }
+
+    lockBodyScroll() {
+        if (this.bodyScrollLocked || typeof document === 'undefined' || !document.body) {
+            return;
+        }
+
+        this.originalBodyOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        this.bodyScrollLocked = true;
+    }
+
+    unlockBodyScroll() {
+        if (!this.bodyScrollLocked || typeof document === 'undefined' || !document.body) {
+            return;
+        }
+
+        document.body.style.overflow = this.originalBodyOverflow || '';
+        this.originalBodyOverflow = '';
+        this.bodyScrollLocked = false;
+    }
+
+    updateMenuAccessibility(forceMobileState) {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (!navMenu) return;
+
+        const isMobile = typeof forceMobileState === 'boolean'
+            ? forceMobileState
+            : this.isMobileViewport();
+        const isOpen = navMenu.classList.contains('active');
+
+        if (isMobile) {
+            navMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            navMenu.dataset.state = isOpen ? 'open' : 'closed';
+
+            if (navToggle) {
+                navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+
+            if (isOpen) {
+                this.lockBodyScroll();
+            } else {
+                this.unlockBodyScroll();
+            }
+        } else {
+            navMenu.removeAttribute('aria-hidden');
+            navMenu.dataset.state = 'desktop';
+            navMenu.classList.remove('active');
+
+            this.unlockBodyScroll();
+
+            if (navToggle) {
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
         }
     }
 
