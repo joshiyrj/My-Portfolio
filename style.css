@@ -2840,9 +2840,6 @@ section {
   font-size: var(--font-size-sm);
 }
 
-/* GitHub Font for README content */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 /* README Modal Styles */
 .modal-body {
   padding: var(--space-24);
