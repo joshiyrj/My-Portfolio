@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yashraj Joshi - AI Engineer, Full-Stack Developer & SEO Specialist with 2.5+ years experience in cloud-native, data-driven products">
+    <meta name="author" content="Yashraj Joshi">
+    <title>Yashraj Joshi - AI Engineer | Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">YJ</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#ai-showcase">AI</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <div class="neural-network">
+                <canvas id="neuralCanvas"></canvas>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="profile-image">
+                <img src="images/profile-photo.png" alt="Yashraj Joshi - AI Engineer and Full-Stack Developer" width="120" height="120">
+            </div>
+            <h1 class="hero-title">
+                <span class="typewriter">Yashraj Joshi</span>
+            </h1>
+            <p class="hero-subtitle animated-text">
+                <span class="text-segment">AI Engineer</span>
+                <span class="text-separator"> • </span>
+                <span class="text-segment">Full-Stack Developer</span>
+                <span class="text-separator"> • </span>
+                <span class="text-segment">SEO Specialist</span>
+            </p>
+            <p class="hero-description">Crafting intelligent solutions with 2.5+ years of experience in cloud-native, data-driven products</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="stat-value">2.5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">100+</span>
+                    <span class="stat-label">AI Assets Created</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value">45%</span>
+                    <span class="stat-label">Traffic Growth</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn--primary">
+                    <span>View My Work</span>
+                </a>
+                <a href="#contact" class="btn btn--secondary">
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Explore my AI journey</div>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-summary">AI/ML engineer and full-stack developer with 2.5+ years of experience delivering cloud-native, data-driven products. Built Shopify e-commerce, IoT sensor data pipelines, and generative-AI content workflows. Hands-on with Python ML (TensorFlow, Keras, scikit-learn), React/Node, and GCP/AWS. Focus on measurable outcomes: automation, analytics, and SEO-driven growth.</p>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="2.5">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="25">0</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="45">0</div>
+                        <div class="stat-label">% Traffic Growth</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">AI Assets Created</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Showcase Section -->
+    <section id="ai-showcase" class="ai-showcase-section">
+        <div class="container">
+            <h2 class="section-title">AI/ML Expertise</h2>
+            <div class="ai-blocks-container">
+                <div class="ai-block" data-tech="tensorflow">
+                    <div class="ai-block-icon">🧠</div>
+                    <h3>TensorFlow</h3>
+                    <p>Deep learning models for computer vision, NLP, and predictive analytics</p>
+                    <div class="ai-block-animation tensorflow-animation"></div>
+                </div>
+                <div class="ai-block" data-tech="keras">
+                    <div class="ai-block-icon">⚡</div>
+                    <h3>Keras</h3>
+                    <p>Rapid prototyping and neural network architecture design</p>
+                    <div class="ai-block-animation keras-animation"></div>
+                </div>
+                <div class="ai-block" data-tech="scikit">
+                    <div class="ai-block-icon">📊</div>
+                    <h3>scikit-learn</h3>
+                    <p>Classical ML algorithms, data preprocessing, and model evaluation</p>
+                    <div class="ai-block-animation scikit-animation"></div>
+                </div>
+                <div class="ai-block" data-tech="cloud">
+                    <div class="ai-block-icon">☁️</div>
+                    <h3>Cloud AI/ML</h3>
+                    <p>GCP/AWS ML pipelines, AutoML, and scalable AI deployments</p>
+                    <div class="ai-block-animation cloud-animation"></div>
+                </div>
+                <div class="ai-block" data-tech="data">
+                    <div class="ai-block-icon">🔄</div>
+                    <h3>Data Pipelines</h3>
+                    <p>ETL workflows, data engineering, and analytics automation</p>
+                    <div class="ai-block-animation data-animation"></div>
+                </div>
+                <div class="ai-block" data-tech="generative">
+                    <div class="ai-block-icon">🎨</div>
+                    <h3>Generative AI</h3>
+                    <p>Content creation, image generation, and language models</p>
+                    <div class="ai-block-animation generative-animation"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Technology Lead</h3>
+                            <div class="company-info">
+                                <span class="company">Kaffa Kuwwa Innovations</span>
+                                <span class="duration">Mar 2024 - Feb 2025</span>
+                            </div>
+                        </div>
+                        <ul class="achievement-list">
+                            <li>Launched Shopify storefront with theme customization, payments, and technical SEO; increased organic traffic by 45%</li>
+                            <li>Automated order fulfillment and reporting on GCP; reduced manual effort and improved data accuracy</li>
+                            <li>Managed Google Workspace administration and cafe-partner onboarding across 25+ locations</li>
+                            <li>Produced 100+ AI-generated marketing assets (copy and visuals) to support product launches</li>
+                            <li>Set up GA4 tracking and dashboards for funnel metrics and campaign ROI</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Data Scientist and Full-Stack Developer</h3>
+                            <div class="company-info">
+                                <span class="company">Unanimous Technologies</span>
+                                <span class="duration">Dec 2022 - Dec 2023</span>
+                            </div>
+                        </div>
+                        <ul class="achievement-list">
+                            <li>Built React front-ends and Express/LoopBack4 back-ends; implemented gRPC for scalable services on GCP/AWS</li>
+                            <li>Developed MQTT + ESP32 ingestion for real-time sensor data; delivered interactive monitoring dashboards</li>
+                            <li>Created Python/Pandas ETL and baseline ML components for analytics and forecasting</li>
+                            <li>Containerized services with Docker; improved deployment reliability and developer onboarding</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="95"><span>Python</span></div>
+                        <div class="skill-item" data-level="90"><span>JavaScript</span></div>
+                        <div class="skill-item" data-level="85"><span>TypeScript</span></div>
+                        <div class="skill-item" data-level="75"><span>R</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>ML/AI</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="90"><span>TensorFlow</span></div>
+                        <div class="skill-item" data-level="88"><span>Keras</span></div>
+                        <div class="skill-item" data-level="92"><span>scikit-learn</span></div>
+                        <div class="skill-item" data-level="95"><span>Pandas</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="92"><span>React</span></div>
+                        <div class="skill-item" data-level="90"><span>Node.js</span></div>
+                        <div class="skill-item" data-level="85"><span>Express</span></div>
+                        <div class="skill-item" data-level="80"><span>LoopBack4</span></div>
+                        <div class="skill-item" data-level="88"><span>gRPC</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="87"><span>GCP</span></div>
+                        <div class="skill-item" data-level="83"><span>AWS</span></div>
+                        <div class="skill-item" data-level="90"><span>Docker</span></div>
+                        <div class="skill-item" data-level="85"><span>Git</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data & BI</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="85"><span>Power BI</span></div>
+                        <div class="skill-item" data-level="80"><span>Tableau</span></div>
+                        <div class="skill-item" data-level="90"><span>PostgreSQL</span></div>
+                        <div class="skill-item" data-level="88"><span>MongoDB</span></div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>IoT & E-commerce</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="85"><span>MQTT</span></div>
+                        <div class="skill-item" data-level="82"><span>ESP32</span></div>
+                        <div class="skill-item" data-level="90"><span>Shopify</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Real GitHub Integration -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-intro">
+                <p>Explore my portfolio of AI/ML, full-stack, and cloud-native solutions from my GitHub repositories.</p>
+            </div>
+            <div class="projects-grid" id="projectsGrid"></div>
+            <div class="projects-error hidden" id="projectsError">
+                <p>Unable to load projects. Please visit my <a href="https://github.com/joshiyrj" target="_blank">GitHub profile</a> directly.</p>
+            </div>
+            
+            <!-- Kaffa Kuwwa E-commerce Project -->
+            <div class="shopify-project-section">
+                <div class="shopify-project-card">
+                    <div class="shopify-project-header">
+                        <div class="shopify-project-icon">🛍️</div>
+                        <div class="shopify-project-info">
+                            <h3 class="shopify-project-title">Kaffa Kuwwa - E-commerce Platform</h3>
+                            <p class="shopify-project-subtitle">Live E-commerce Store • Shopify Development</p>
+                        </div>
+                    </div>
+                    <div class="shopify-project-description">
+                        <p>Developed <strong>kaffakuwwa.com</strong>, a fully functional e-commerce platform built on Shopify using a free theme with extensive custom code modifications. The site features responsive design, optimized checkout flows, and custom functionality tailored to the coffee business needs.</p>
+                        <div class="shopify-project-tech">
+                            <span class="tech-badge">Shopify</span>
+                            <span class="tech-badge">Liquid</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">CSS</span>
+                            <span class="tech-badge">Responsive Design</span>
+                        </div>
+                    </div>
+                    <div class="shopify-project-actions">
+                        <a href="https://kaffakuwwa.com" target="_blank" rel="noopener noreferrer" class="shopify-project-btn shopify-project-btn--primary">
+                            <span>Visit Website</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications-section">
+        <div class="container">
+            <h2 class="section-title">Certifications & Education</h2>
+            <div class="certifications-grid">
+                <div class="cert-category">
+                    <h3>AI/ML Certifications</h3>
+                    <div class="cert-items">
+                        <div class="cert-item featured">
+                            <div class="cert-icon">🏆</div>
+                            <div class="cert-details">
+                                <h4>AI/ML Diploma</h4>
+                                <p class="cert-issuer">Aptech Learning</p>
+                                <p class="cert-year">2024</p>
+                            </div>
+                        </div>
+                        <div class="cert-item featured">
+                            <div class="cert-icon">🥇</div>
+                            <div class="cert-details">
+                                <h4>Introduction to Artificial Intelligence</h4>
+                                <p class="cert-issuer">Government of Rajasthan</p>
+                                <p class="cert-year">2025</p>
+                                <p class="cert-note">15-day program • Ranked 1st</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">🚀</div>
+                            <div class="cert-details">
+                                <h4>Generative AI for Engineers</h4>
+                                <p class="cert-issuer">Outskill</p>
+                                <p class="cert-year">2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-category">
+                    <h3>Digital Marketing</h3>
+                    <div class="cert-items">
+                        <div class="cert-item">
+                            <div class="cert-icon">📈</div>
+                            <div class="cert-details">
+                                <h4>Fundamentals of Digital Marketing</h4>
+                                <p class="cert-issuer">Google (Digital Garage)</p>
+                                <p class="cert-year">2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-category">
+                    <h3>Education</h3>
+                    <div class="cert-items">
+                        <div class="cert-item">
+                            <div class="cert-icon">🎓</div>
+                            <div class="cert-details">
+                                <h4>Bachelor's in Computer Applications</h4>
+                                <p class="cert-issuer">Jai Narain Vyas University</p>
+                                <p class="cert-year">2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-category">
+                    <h3>Languages</h3>
+                    <div class="language-items">
+                        <div class="language-item">
+                            <span class="language-name">Hindi</span>
+                            <span class="language-level">Native</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">English</span>
+                            <span class="language-level">Fluent</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Bengali</span>
+                            <span class="language-level">Fluent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-text">
+                        <h3>Ready to collaborate?</h3>
+                        <p>I'm always excited to work on innovative AI/ML projects and collaborate with forward-thinking teams. Whether you need machine learning expertise, full-stack development, or technical leadership, let's create something extraordinary together.</p>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:joshiyrj@gmail.com">joshiyrj@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <span class="contact-label">Location</span>
+                                <span>Jodhpur, India</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <span class="contact-label">Phone</span>
+                                <span>+91 63762 57062</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/yashrajjoshi" target="_blank" class="social-btn linkedin">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/joshiyrj" target="_blank" class="social-btn github">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">
+                        <span>Send Message</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Yashraj Joshi</p>
+        </div>
+    </footer>
+
+    <!-- README Modal -->
+    <div class="modal hidden" id="readmeModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="readmeTitle">Project README</h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="readme-content" id="readmeContent">
+                    <div class="loading-spinner"></div>
+                    <p>Loading README...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
