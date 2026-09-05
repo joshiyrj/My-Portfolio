@@ -2068,7 +2068,7 @@ section {
 }
 
 /* Client & Production Projects Grid */
-.client-projects-section {
+.featured-projects-section {
   margin-top: calc(var(--space-32) * 1.5);
   padding-top: var(--space-32);
   border-top: 2px solid var(--color-border);
